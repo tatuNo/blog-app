@@ -1,0 +1,9 @@
+PUT http://localhost:3003/api/blogs/5fae9381c29c413878b8be4a
+Content-Type: application/json
+
+{
+    "title": "SAHA",
+    "author": "kKKKKK",
+    "url": "www.kdksakdsadsSSimo.com",
+    "likes": "3213"
+}
