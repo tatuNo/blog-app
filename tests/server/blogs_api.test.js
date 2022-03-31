@@ -7,8 +7,6 @@ const User = require('../../server/models/user')
 const Blog = require('../../server/models/blog')
 const api = supertest(app)
 
-jest.useRealTimers()
-
 beforeEach(async () => {
   await Blog.deleteMany({})
   await Blog.insertMany(helper.initialBlogs)

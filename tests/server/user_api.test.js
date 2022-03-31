@@ -7,8 +7,6 @@ const User = require('../../server/models/user')
 const app = require('../../app')
 const api = supertest(app)
 
-jest.useRealTimers()
-
 describe('when there is intially one user at db', () => {
   beforeEach(async () => {
     await User.deleteMany({})
