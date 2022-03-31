@@ -77,9 +77,7 @@ describe('Blog app', function() {
           cy.get('html').should('not.contain', 'otsikko kirjoittaja')
         })
 
-        it('blogs are in orded by likes, most likes on top', {
-          defaultCommandTimeout: 10000
-        }, function () {
+        it('blogs are in orded by likes, most likes on top', { defaultCommandTimeout: 120000 }, function () {
           cy.contains('ipsum lorem')
             .contains('view').click()
           cy.contains('like').click()
