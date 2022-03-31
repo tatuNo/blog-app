@@ -20,14 +20,12 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
     logger.error('error conncetion to mongoDB', error.message)
   })
 
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('build'))
-}
-
 app.use(cors())
 app.use(express.json())
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
+
+app.use(express.static('build'))
 
 app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)

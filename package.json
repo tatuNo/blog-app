@@ -25,7 +25,7 @@
     "build": "react-app-rewired build",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "eject": "react-scripts eject",
-    "start-prod": "cross-env NODE_ENV=production node index.js",
+    "start-prod": "node index.js",
     "dev:server": "cross-env NODE_ENV=development nodemon index.js",
     "test:server": "cross-env NODE_ENV=test node index.js",
     "eslint": "eslint ./**/*.{js,jsx}",
