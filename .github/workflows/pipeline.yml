@@ -33,10 +33,9 @@ jobs:
       - name: end to end tests
         uses: cypress-io/github-action@v2
         with:
-          command: npm run test:e2e
+          command: npm run test:e2e-record
           start: npm run dev:client, npm run test:server
           wait-on: http://localhost:3000, http://localhost:3003/api/health
-          record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
