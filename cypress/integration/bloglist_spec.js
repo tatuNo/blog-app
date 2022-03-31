@@ -89,16 +89,19 @@ describe('Blog app', function() {
           cy.contains('like').click()
           cy.contains('hide').click()
 
-          cy.get('#blogdiv').children().then( blogs => {
-            cy.wrap(blogs[0])
-              .should('contain', 'ipsum lorem')
+          cy.get('#blogdiv').children([0]).should('contain', 'ipsum lorem')
+          cy.get('#blogdiv').children([1]).should('contain', 'laarum liirum')
+          cy.get('#blogdiv').children([2]).should('contain', 'otsikko kirjoittaja')
+          // cy.get('#blogdiv').children().then( blogs => {
+          //   cy.wrap(blogs[0])
+          //     .should('contain', 'ipsum lorem')
 
-            //cy.wrap(blogs[1])
-              //.should('contain', 'laarum liirum')
+          //   //cy.wrap(blogs[1])
+          //     //.should('contain', 'laarum liirum')
 
-            cy.wrap(blogs[2])
-              .should('contain', 'otsikko kirjoittaja')
-          })
+          //   cy.wrap(blogs[2])
+          //     .should('contain', 'otsikko kirjoittaja')
+          // })
         })
       })
     })
