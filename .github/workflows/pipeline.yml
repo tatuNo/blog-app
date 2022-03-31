@@ -8,6 +8,12 @@ on:
     branches: [master]
     types: [opened, synchronize]
 
+env:
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+  SERVER_PORT: ${{ secrets.SERVER_PORT }}
+  SECRET: ${{ secrets.SECRET }}
+  MONGODB_TEST_URI: ${{ secrets.TEST_MONGODB_URI }}
+
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
@@ -21,19 +27,11 @@ jobs:
       - name: lint
         run: npm run eslint
       - name: build
-        env:
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
-          SERVER_PORT: ${{ secrets.SERVER_PORT }}
-          SECRET: ${{ secrets.SECRET }}
         run: npm run build
       - name: test
         run: npm test
       - name: end to end tests
         uses: cypress-io/github-action@v2
-        env:
-          MONGODB_TEST_URI: ${{ secrets.TEST_MONGODB_URI }}
-          SECRET: ${{ secrets.SECRET }}
-          SERVER_PORT: ${{ secrets.SERVER_PORT }}
         with:
           command: npm run test:e2e
           start: npm run test:server && npm run dev:client
