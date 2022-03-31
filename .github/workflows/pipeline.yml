@@ -23,15 +23,13 @@ jobs:
       - name: build
         run: npm run build
       - name: test
-        env: 
-          PORT: ${{ secrets.PORT }}
+        env:
           SECRET: ${{ secrets.SECRET }}
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
         run: npm test
       - name: end to end tests
         uses: cypress-io/github-action@v2
         env: 
-          PORT: ${{ secrets.PORT }}
           SECRET: ${{ secrets.SECRET }}
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
